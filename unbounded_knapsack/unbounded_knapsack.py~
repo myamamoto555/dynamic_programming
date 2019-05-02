@@ -1,0 +1,14 @@
+def rec(item, c):
+    if c > capacity or item >= len(profits):
+        return 0
+    profit1 = 0
+    if c-weights[item] >= 0:
+        profit1 = profits[item] + rec(item, c - weights[item])
+    profit2 = rec(item + 1, c)
+    return max(profit1, profit2)
+
+weights = [1,2,3]
+profits = [15, 20, 50]
+capacity = 5
+
+print (rec(0, capacity))
